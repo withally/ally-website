@@ -16,8 +16,30 @@ const interTight = Inter_Tight({
 
 export const metadata: Metadata = {
   title: "Ally — Executive Partners × AI Systems for Leaders",
-  description: "Connecting executive partners with AI systems to empower leaders.",
-  keywords: ["executive partners", "AI systems", "leadership", "ally"],
+  description:
+    "We embed our Executive Partners to turn wins into playbooks, and layer AI automation so your operating system runs itself. More time, clarity, impact back to you.",
+  keywords: [
+    "executive partners",
+    "AI systems",
+    "leadership",
+    "automation",
+    "playbooks",
+    "operations",
+    "executive assistant",
+  ],
+  openGraph: {
+    title: "Ally — Executive Partners × AI Systems for Leaders",
+    description:
+      "We embed our Executive Partners to turn wins into playbooks, and layer AI automation so your operating system runs itself.",
+    type: "website",
+    url: "https://withally.com",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ally — Executive Partners × AI Systems for Leaders",
+    description:
+      "We embed our Executive Partners to turn wins into playbooks, and layer AI automation so your operating system runs itself.",
+  },
 };
 
 export default function RootLayout({
