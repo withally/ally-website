@@ -13,11 +13,23 @@ const config: Config = {
         foreground: "var(--foreground)",
         // Ally brand colors (from website analysis)
         ally: {
-          purple: "#7734b3",
+          bg: "rgb(8, 8, 7)",
+          "bg-dark": "#080807",
           black: "#0f0f0f",
-          "black-light": "#212121",
+          green: "#d3ffca",
           pink: "#fec9ff",
           white: "#ffffff",
+          gray: {
+            100: "#f5f5f5",
+            200: "#e5e5e5",
+            300: "#d4d4d4",
+            400: "#a3a3a3",
+            500: "#737373",
+            600: "#525252",
+            700: "#424242",
+            800: "#262626",
+            900: "#171717",
+          },
         },
       },
       fontFamily: {

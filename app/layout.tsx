@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${interTight.variable}`}>
-      <body className="font-inter antialiased bg-ally-black text-ally-white">
+      <body className="font-inter antialiased bg-ally-bg text-ally-white">
         {children}
       </body>
     </html>
