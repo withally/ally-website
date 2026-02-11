@@ -3,8 +3,32 @@
 @tailwind utilities;
 
 :root {
-  --background: rgb(8, 8, 7);
+  /* Exact Framer Color Tokens */
+  --color-pink-light: #fec9ff;
+  --color-purple: #7734b3;
+  --color-black: #0f0f0f;
+  --color-pink-overlay: rgba(239, 201, 255, 0.25); /* #efc9ff40 */
+  --color-gray-dark: #424242;
+  --color-gray-darker: #212121;
+  --color-purple-dark: #1b0c21;
+  --color-purple-deep: #2e0d17;
+  --color-charcoal: #191919;
+  --color-near-black: #111111;
+  --color-white: #ffffff;
+
+  /* Legacy variables for compatibility */
+  --background: #0f0f0f;
   --foreground: #ffffff;
+
+  /* Typography Variables */
+  --font-size-scale: 1;
+  --letter-spacing: 0;
+  --line-height-base: 1.3em;
+  --line-height-quote: 1.2em;
+
+  /* Spacing Variables */
+  --paragraph-spacing: 0;
+  --text-background-padding: 0;
 }
 
 html {
@@ -13,12 +37,29 @@ html {
 
 @layer base {
   body {
-    @apply bg-background text-foreground;
+    @apply bg-[#0f0f0f] text-white;
+    font-size: 12px; /* Framer base font size */
+    line-height: var(--line-height-base);
+  }
+
+  /* Typography base styles */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: var(--letter-spacing);
+  }
+
+  blockquote {
+    line-height: var(--line-height-quote);
   }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Framer-style text effects */
+  .text-stroke {
+    -webkit-text-stroke-width: var(--text-stroke-width, 0);
+    -webkit-text-stroke-color: var(--text-stroke-color, currentColor);
   }
 }

@@ -16,8 +16,7 @@ export const NAV_ITEMS = [
 ];
 
 export const HERO_CONTENT = {
-  headline: "Ally",
-  tagline: "Executive Partners × AI Systems for Leaders",
+  headline: "Ally — Executive Partners x AI Systems for Leaders",
   description:
     "We embed our Executive Partners to turn wins into playbooks, and layer AI automation so your operating system runs itself. More time, clarity, impact back to you.",
   cta: "Get in Touch",
