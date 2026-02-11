@@ -1,41 +1,54 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { KEY_MESSAGES } from "@/lib/constants";
+import { WHAT_ALLY_IS } from "@/lib/constants";
 
 export default function WhatIsAlly() {
   return (
-    <section id="what-is-ally" className="py-32 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section id="what-ally-is" className="py-32 px-6">
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-8"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 font-inter-tight">
-            Remove friction from your day
-          </h2>
-          <p className="text-xl md:text-2xl text-ally-white/70 max-w-3xl mx-auto">
-            Embed an Executive Partner and focus on what matters.
+          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/60 mb-12">
+            {WHAT_ALLY_IS.sectionLabel}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {KEY_MESSAGES.map((message, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-2xl bg-ally-gray-900/30 border border-ally-gray-800 hover:border-ally-green/30 transition-colors"
-            >
-              <p className="text-lg leading-relaxed">{message}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mb-16"
+        >
+          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white">
+            <span>{WHAT_ALLY_IS.heading.line1}</span>
+            <br />
+            <span className="text-[#fec9ff]">{WHAT_ALLY_IS.heading.line2}</span>
+            <br className="hidden tablet:block" />
+            <span className="text-[#fec9ff] tablet:hidden"> </span>
+            <span>{WHAT_ALLY_IS.heading.line3}</span>
+            <br />
+            <span>{WHAT_ALLY_IS.heading.line4}</span>
+            <br className="hidden tablet:block" />
+            <span> {WHAT_ALLY_IS.heading.line5}</span>
+          </h2>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 max-w-[600px] leading-[1.6]"
+        >
+          {WHAT_ALLY_IS.body}
+        </motion.p>
       </div>
     </section>
   );

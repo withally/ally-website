@@ -4,6 +4,8 @@ import Hero from "@/components/sections/Hero";
 import WhatIsAlly from "@/components/sections/WhatIsAlly";
 import WhyNow from "@/components/sections/WhyNow";
 import HowItWorks from "@/components/sections/HowItWorks";
+import WhoBenefits from "@/components/sections/WhoBenefits";
+import WhatToExpect from "@/components/sections/WhatToExpect";
 import Hiring from "@/components/sections/Hiring";
 import FAQ from "@/components/sections/FAQ";
 
@@ -16,6 +18,8 @@ export default function Home() {
         <WhatIsAlly />
         <WhyNow />
         <HowItWorks />
+        <WhoBenefits />
+        <WhatToExpect />
         <Hiring />
         <FAQ />
       </main>

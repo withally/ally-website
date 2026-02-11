@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { NAV_ITEMS } from "@/lib/constants";
+import { NAV_ITEMS, SITE_CONFIG } from "@/lib/constants";
 
 export default function Header() {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,10 +10,8 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Show header after scrolling 200px
       setIsVisible(window.scrollY > 200);
 
-      // Update active section based on scroll position
       const sections = NAV_ITEMS.map((item) => item.href.substring(1));
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -41,25 +39,24 @@ export default function Header() {
           transition={{ duration: 0.3, ease: "easeOut" }}
           className="fixed top-8 left-1/2 -translate-x-1/2 z-50"
         >
-          <nav className="bg-ally-bg/80 backdrop-blur-xl border border-ally-gray-800 rounded-full px-6 py-3 shadow-2xl">
-            <ul className="flex items-center gap-2">
+          <nav className="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#424242]/30 rounded-full px-2 py-2 shadow-2xl">
+            <ul className="flex items-center gap-1">
               {NAV_ITEMS.map((item) => {
-                const isActive =
-                  activeSection === item.href.substring(1);
+                const isActive = activeSection === item.href.substring(1);
                 return (
                   <li key={item.href}>
                     <a
                       href={item.href}
-                      className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                      className={`relative px-4 py-2 rounded-full text-[14px] font-inter-tight tracking-[0.5px] transition-colors whitespace-nowrap ${
                         isActive
-                          ? "text-ally-bg"
-                          : "text-ally-white/70 hover:text-ally-white"
+                          ? "text-[#0f0f0f]"
+                          : "text-white/70 hover:text-white"
                       }`}
                     >
                       {isActive && (
                         <motion.div
                           layoutId="activeSection"
-                          className="absolute inset-0 bg-ally-green rounded-full -z-10"
+                          className="absolute inset-0 bg-[#fec9ff] rounded-full -z-10"
                           transition={{
                             type: "spring",
                             stiffness: 380,
@@ -72,6 +69,16 @@ export default function Header() {
                   </li>
                 );
               })}
+              <li>
+                <a
+                  href={SITE_CONFIG.requestAccessUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-2 rounded-full text-[14px] font-inter-tight tracking-[0.5px] bg-[#fec9ff] text-[#0f0f0f] whitespace-nowrap hover:opacity-90 transition-opacity"
+                >
+                  Request Access
+                </a>
+              </li>
             </ul>
           </nav>
         </motion.header>

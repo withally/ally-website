@@ -8,24 +8,21 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-4">
-      <div className="max-w-4xl mx-auto">
+    <section className="py-32 px-6">
+      <div className="max-w-[800px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 font-inter-tight">
+          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white">
             FAQ
           </h2>
-          <p className="text-xl text-ally-white/70">
-            Common questions about working with Ally
-          </p>
         </motion.div>
 
-        <div className="space-y-4">
+        <div className="space-y-2">
           {FAQ_ITEMS.map((item, index) => (
             <motion.div
               key={index}
@@ -33,21 +30,21 @@ export default function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
               viewport={{ once: true }}
-              className="border border-ally-gray-800 rounded-xl overflow-hidden bg-ally-gray-900/20"
+              className="border-b border-[#424242]/20"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-ally-gray-900/30 transition-colors"
+                className="w-full py-6 text-left flex items-center justify-between group"
               >
-                <span className="text-lg font-semibold pr-8">
+                <span className="text-[14px] font-inter-tight tracking-[0.5px] text-white pr-8 leading-[1.4]">
                   {item.question}
                 </span>
                 <motion.span
-                  animate={{ rotate: openIndex === index ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                  className="text-2xl text-ally-green"
+                  animate={{ rotate: openIndex === index ? 45 : 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="text-[20px] text-[#fec9ff] flex-shrink-0"
                 >
-                  ↓
+                  +
                 </motion.span>
               </button>
 
@@ -60,7 +57,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="px-8 pb-6 text-ally-white/70 leading-relaxed">
+                    <div className="pb-6 text-[14px] font-inter-tight tracking-[0.5px] text-white/60 leading-[1.6] max-w-[600px]">
                       {item.answer}
                     </div>
                   </motion.div>

@@ -1,49 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { TARGET_AUDIENCES } from "@/lib/constants";
+import { WHY_NOW } from "@/lib/constants";
 
 export default function WhyNow() {
   return (
-    <section id="why-now" className="py-32 px-4 bg-ally-gray-900/20">
-      <div className="max-w-6xl mx-auto">
+    <section id="why-now" className="py-32 px-6">
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 font-inter-tight">
-            Why Now
-          </h2>
-          <p className="text-xl md:text-2xl text-ally-white/80 max-w-4xl mx-auto leading-relaxed mb-12">
-            AI has made "doing" faster and cheaper than ever.
+          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/60 mb-12">
+            {WHY_NOW.sectionLabel}
           </p>
-          <p className="text-lg text-ally-white/60 max-w-3xl mx-auto leading-relaxed">
-            If more of your time is still going into tasks others—or AI—could
-            handle, you're leaving leverage on the table. We believe the leaders
-            who thrive will focus on what only they can decide, improve their
-            decision quality continuously, and build systems that keep everything
-            else moving without them. Ally helps you design and run that system.
+
+          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white mb-12">
+            {WHY_NOW.headline}
+          </h2>
+
+          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 max-w-[600px] leading-[1.6]">
+            {WHY_NOW.body}
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mt-16">
-          {TARGET_AUDIENCES.map((audience, index) => (
+        <div className="grid mobile:grid-cols-1 tablet:grid-cols-3 desktop:grid-cols-3 desktop-lg:grid-cols-3 gap-6 mt-16">
+          {WHY_NOW.cards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-10 rounded-3xl bg-ally-bg border-2 border-ally-gray-800 hover:border-ally-pink/30 transition-colors"
+              className="p-8 rounded-2xl bg-[#191919] border border-[#424242]/20"
             >
-              <h3 className="text-2xl font-bold mb-4 text-ally-pink">
-                {audience.title}
+              <h3 className="text-[14px] font-inter-tight font-bold tracking-[0.5px] text-[#fec9ff] mb-3">
+                {card.title}
               </h3>
-              <p className="text-ally-white/70 leading-relaxed">
-                {audience.description}
+              <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.4]">
+                {card.description}
               </p>
             </motion.div>
           ))}

@@ -1,54 +1,66 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { HERO_CONTENT } from "@/lib/constants";
+import { HERO_CONTENT, SITE_CONFIG } from "@/lib/constants";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 mobile:px-4 py-20 bg-ally-black">
-      <div className="max-w-5xl mx-auto text-center">
-        {/* Main Headline - Full title */}
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20">
+      <div className="max-w-[900px] mx-auto text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="text-5xl md:text-7xl desktop-lg:text-8xl font-bold mb-12 font-inter-display leading-tight tracking-tight text-white"
+          className="font-editorial text-[45px] tablet:text-[80px] desktop:text-[100px] desktop-lg:text-[100px] leading-[1.1] tracking-tight text-white mb-8"
         >
           {HERO_CONTENT.headline}
         </motion.h1>
 
-        {/* Description - Main tagline */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="text-xl md:text-2xl desktop-lg:text-3xl text-white/90 max-w-4xl mx-auto mb-12 leading-normal font-inter"
+          className="text-[14px] tablet:text-[14px] desktop:text-[14px] text-white/80 max-w-[600px] mx-auto mb-10 leading-[1.4] tracking-[0.5px] font-inter-tight"
         >
           {HERO_CONTENT.description}
         </motion.p>
 
-        {/* CTA Button */}
-        <motion.button
+        <motion.a
+          href={SITE_CONFIG.requestAccessUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-ally-purple hover:bg-ally-purple/90 text-white px-8 py-4 rounded-lg font-semibold text-lg font-inter-tight hover:shadow-lg hover:shadow-ally-purple/30 transition-all duration-200"
+          className="inline-block bg-[#fec9ff] text-[#0f0f0f] px-8 py-3 rounded-full font-inter-tight text-[14px] font-normal tracking-[0.5px] hover:opacity-90 transition-opacity"
         >
           {HERO_CONTENT.cta}
-        </motion.button>
-
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-          className="mt-20 text-sm text-white/40 font-inter"
-        >
-          Scroll to explore ↓
-        </motion.div>
+        </motion.a>
       </div>
+
+      {/* Scrolling Request Access marquee */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-20 w-full overflow-hidden"
+      >
+        <div className="flex animate-marquee whitespace-nowrap">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <a
+              key={i}
+              href={SITE_CONFIG.requestAccessUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mx-8 text-white/20 text-[14px] font-inter-tight tracking-[0.5px] hover:text-white/40 transition-colors"
+            >
+              Request Access
+            </a>
+          ))}
+        </div>
+      </motion.div>
     </section>
   );
 }
