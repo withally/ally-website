@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { WHAT_TO_EXPECT } from "@/lib/constants";
 
@@ -29,19 +30,25 @@ export default function WhatToExpect() {
               viewport={{ once: true }}
               className="flex gap-8 mobile:flex-col"
             >
-              <div className="flex-shrink-0 w-[120px]">
+              <div className="flex-shrink-0 w-[140px]">
                 <span className="text-[30px] font-editorial text-[#fec9ff] leading-[1.2]">
                   {phase.period}
                 </span>
               </div>
               <div className="space-y-4">
                 {phase.items.map((item, idx) => (
-                  <p
-                    key={idx}
-                    className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]"
-                  >
-                    {item}
-                  </p>
+                  <div key={idx} className="flex items-start gap-3">
+                    <Image
+                      src="/images/checkmark.png"
+                      alt=""
+                      width={16}
+                      height={16}
+                      className="mt-1 flex-shrink-0 opacity-60"
+                    />
+                    <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]">
+                      {item}
+                    </p>
+                  </div>
                 ))}
               </div>
             </motion.div>

@@ -145,6 +145,7 @@ export const HIRING = {
     },
     {
       title: "Client Partnership Lead",
+      location: "Remote",
       responsibilities: [
         "Partner with founders to diagnose bottlenecks and turn chaos into clear, structured workflows.",
         "Identify opportunities for client expansion and long-term partnership growth.",
@@ -152,6 +153,7 @@ export const HIRING = {
         "Coach Executive Partners weekly to raise standards, improve judgment, and deepen client leverage.",
         "Build and refine SOPs, systems, and automation-ready processes across Notion, Slack, Sheets, and other tools.",
       ],
+      cta: "Learn More",
     },
   ],
 };

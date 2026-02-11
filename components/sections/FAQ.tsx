@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FAQ_ITEMS } from "@/lib/constants";
 
@@ -39,13 +40,19 @@ export default function FAQ() {
                 <span className="text-[14px] font-inter-tight tracking-[0.5px] text-white pr-8 leading-[1.4]">
                   {item.question}
                 </span>
-                <motion.span
+                <motion.div
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                   transition={{ duration: 0.2 }}
-                  className="text-[20px] text-[#fec9ff] flex-shrink-0"
+                  className="flex-shrink-0"
                 >
-                  +
-                </motion.span>
+                  <Image
+                    src="/images/arrow-icon.png"
+                    alt=""
+                    width={16}
+                    height={16}
+                    className="opacity-50"
+                  />
+                </motion.div>
               </button>
 
               <AnimatePresence>

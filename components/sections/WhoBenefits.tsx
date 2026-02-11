@@ -1,7 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { WHO_BENEFITS } from "@/lib/constants";
+
+const AUDIENCE_IMAGES = [
+  { src: "/images/gradient-art-1.png", alt: "" },
+  { src: "/images/gradient-art-2.png", alt: "" },
+];
 
 export default function WhoBenefits() {
   return (
@@ -19,7 +25,7 @@ export default function WhoBenefits() {
           </h2>
         </motion.div>
 
-        <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 desktop-lg:grid-cols-2 gap-8 mb-12">
+        <div className="space-y-6 mb-12">
           {WHO_BENEFITS.audiences.map((audience, index) => (
             <motion.div
               key={index}
@@ -27,17 +33,32 @@ export default function WhoBenefits() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-2xl bg-[#191919] border border-[#424242]/20"
+              className="flex mobile:flex-col gap-6 p-8 rounded-2xl bg-[#191919] border border-[#424242]/20"
             >
-              <h3 className="text-[30px] font-editorial leading-[1.2] text-[#fec9ff] mb-2">
-                {audience.title}
-              </h3>
-              <p className="text-[14px] font-inter-tight font-bold tracking-[0.5px] text-white mb-4 leading-[1.4]">
-                {audience.subtitle}
-              </p>
-              <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]">
-                {audience.description}
-              </p>
+              {/* Avatar image */}
+              <div className="flex-shrink-0">
+                <div className="w-20 h-20 rounded-2xl overflow-hidden">
+                  <Image
+                    src={AUDIENCE_IMAGES[index].src}
+                    alt={AUDIENCE_IMAGES[index].alt}
+                    width={80}
+                    height={80}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              {/* Content */}
+              <div>
+                <h3 className="text-[30px] font-editorial leading-[1.2] text-[#fec9ff] mb-2">
+                  {audience.title}
+                </h3>
+                <p className="text-[14px] font-inter-tight font-bold tracking-[0.5px] text-white mb-4 leading-[1.4]">
+                  {audience.subtitle}
+                </p>
+                <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]">
+                  {audience.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>

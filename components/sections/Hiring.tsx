@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { HIRING, SITE_CONFIG } from "@/lib/constants";
 
@@ -14,12 +15,12 @@ export default function Hiring() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white whitespace-pre-line mb-8">
-            {HIRING.headline}
-          </h2>
-          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 max-w-[600px] leading-[1.6]">
+          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 max-w-[600px] leading-[1.6] mb-8">
             {HIRING.intro}
           </p>
+          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white whitespace-pre-line">
+            {HIRING.headline}
+          </h2>
         </motion.div>
 
         <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 desktop-lg:grid-cols-2 gap-8">
@@ -44,9 +45,16 @@ export default function Hiring() {
                 {role.responsibilities.map((item, idx) => (
                   <li
                     key={idx}
-                    className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6] pl-4 relative before:content-[''] before:absolute before:left-0 before:top-[9px] before:w-[5px] before:h-[5px] before:rounded-full before:bg-[#fec9ff]/40"
+                    className="flex items-start gap-3 text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]"
                   >
-                    {item}
+                    <Image
+                      src="/images/checkmark.png"
+                      alt=""
+                      width={14}
+                      height={14}
+                      className="mt-1 flex-shrink-0 opacity-50"
+                    />
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -55,9 +63,16 @@ export default function Hiring() {
                   href={SITE_CONFIG.hiringUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-[14px] font-inter-tight tracking-[0.5px] text-[#fec9ff] hover:text-white transition-colors"
+                  className="inline-flex items-center gap-2 text-[14px] font-inter-tight tracking-[0.5px] text-[#fec9ff] hover:text-white transition-colors"
                 >
-                  {role.cta} →
+                  {role.cta}
+                  <Image
+                    src="/images/arrow-icon.png"
+                    alt=""
+                    width={14}
+                    height={14}
+                    className="opacity-70"
+                  />
                 </a>
               )}
             </motion.div>
