@@ -14,12 +14,9 @@ export default function Footer() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white mb-8">
-            Let&apos;s talk.
-          </h2>
           <a
             href={`mailto:${SITE_CONFIG.email}`}
-            className="text-[14px] font-inter-tight tracking-[0.5px] text-[#fec9ff] hover:text-white transition-colors"
+            className="block font-inter-tight text-[38px] tablet:text-[70px] desktop:text-[80px] desktop-lg:text-[100px] leading-[1.1] text-white hover:text-[#fec9ff] transition-colors"
           >
             {SITE_CONFIG.email}
           </a>
@@ -32,14 +29,22 @@ export default function Footer() {
           viewport={{ once: true }}
           className="flex items-center justify-between pt-8 border-t border-[#424242]/20"
         >
-          <p className="text-[12px] font-inter-tight tracking-[0.5px] text-white/40">
-            Copywrite &copy; 2025
-          </p>
+          <div>
+            <p className="text-[12px] font-inter-tight tracking-[0.5px] text-[#fec9ff]">
+              Copywrite &copy; 2025
+            </p>
+            <a
+              href={`mailto:${SITE_CONFIG.email}`}
+              className="text-[12px] font-inter-tight tracking-[0.5px] text-white hover:text-[#fec9ff] transition-colors"
+            >
+              {SITE_CONFIG.email}
+            </a>
+          </div>
           <a
             href={SITE_CONFIG.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[12px] font-inter-tight tracking-[0.5px] text-white/40 hover:text-white transition-colors"
+            className="text-[12px] font-inter-tight tracking-[0.5px] text-white hover:text-[#fec9ff] transition-colors"
           >
             LinkedIn
           </a>

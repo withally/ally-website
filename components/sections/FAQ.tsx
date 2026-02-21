@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FAQ_ITEMS } from "@/lib/constants";
 
@@ -9,8 +8,8 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-32 px-6">
-      <div className="max-w-[800px] mx-auto">
+    <section id="faq" className="py-32 px-6">
+      <div className="max-w-[1200px] mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -18,41 +17,31 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white">
+          <h2 className="font-editorial text-[55px] tablet:text-[70px] desktop:text-[80px] desktop-lg:text-[90px] leading-[1.1] tracking-tight text-white">
             FAQ
           </h2>
         </motion.div>
 
-        <div className="space-y-2">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="rounded-2xl bg-[#191919] border border-[#424242]/20 overflow-hidden"
+        >
           {FAQ_ITEMS.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              viewport={{ once: true }}
-              className="border-b border-[#424242]/20"
+              className={index < FAQ_ITEMS.length - 1 ? "border-b border-[#424242]/20" : ""}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full py-6 text-left flex items-center justify-between group"
+                className="w-full px-8 py-6 text-left flex items-center gap-6 group"
               >
-                <span className="text-[14px] font-inter-tight tracking-[0.5px] text-white pr-8 leading-[1.4]">
+                <span className="flex-shrink-0 text-[16px] text-white/50">&#8599;</span>
+                <span className="text-[15px] font-inter-tight tracking-[0.5px] text-white leading-[1.4]">
                   {item.question}
                 </span>
-                <motion.div
-                  animate={{ rotate: openIndex === index ? 45 : 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="flex-shrink-0"
-                >
-                  <Image
-                    src="/images/arrow-icon.png"
-                    alt=""
-                    width={16}
-                    height={16}
-                    className="opacity-50"
-                  />
-                </motion.div>
               </button>
 
               <AnimatePresence>
@@ -64,15 +53,15 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="pb-6 text-[14px] font-inter-tight tracking-[0.5px] text-white/60 leading-[1.6] max-w-[600px]">
+                    <div className="px-8 pb-6 pl-[72px] text-[15px] font-inter-tight tracking-[0.5px] text-[#858585] leading-[1.6] max-w-[600px]">
                       {item.answer}
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

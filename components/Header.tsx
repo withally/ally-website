@@ -33,55 +33,55 @@ export default function Header() {
     <AnimatePresence>
       {isVisible && (
         <motion.header
-          initial={{ y: -110, opacity: 0 }}
+          initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -110, opacity: 0 }}
+          exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.3, ease: "easeOut" }}
-          className="fixed top-8 left-1/2 -translate-x-1/2 z-50"
+          className="fixed top-4 left-0 right-0 z-50 flex justify-center"
         >
-          <nav className="bg-[#0f0f0f]/80 backdrop-blur-xl border border-[#424242]/30 rounded-full px-2 py-2 shadow-2xl">
-            <ul className="flex items-center gap-1">
-              {NAV_ITEMS.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
-                return (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      className={`relative px-4 py-2 rounded-full text-[14px] font-inter-tight tracking-[0.5px] transition-colors whitespace-nowrap ${
-                        isActive
-                          ? "text-[#0f0f0f]"
-                          : "text-white/70 hover:text-white"
-                      }`}
-                    >
-                      {isActive && (
-                        <motion.div
-                          layoutId="activeSection"
-                          className="absolute inset-0 bg-[#fec9ff] rounded-full -z-10"
-                          transition={{
-                            type: "spring",
-                            stiffness: 380,
-                            damping: 30,
-                          }}
-                        />
-                      )}
-                      {item.label}
-                    </a>
-                  </li>
-                );
-              })}
-              <li>
+      <nav className="bg-transparent backdrop-blur-sm border border-white/[0.12] rounded-[12px] px-2 py-2">
+        <ul className="flex items-center gap-1">
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeSection === item.href.substring(1);
+            return (
+              <li key={item.href}>
                 <a
-                  href={SITE_CONFIG.requestAccessUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-4 py-2 rounded-full text-[14px] font-inter-tight tracking-[0.5px] bg-[#fec9ff] text-[#0f0f0f] whitespace-nowrap hover:opacity-90 transition-opacity"
+                  href={item.href}
+                  className={`relative px-4 py-2 rounded-full text-[14px] font-inter-tight tracking-[0.5px] transition-colors whitespace-nowrap ${
+                    isActive
+                      ? "text-[#0f0f0f]"
+                      : "text-white/70 hover:text-white"
+                  }`}
                 >
-                  Request Access
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeSection"
+                      className="absolute inset-0 bg-[#d3ffca] rounded-[8px] -z-10"
+                      transition={{
+                        type: "spring",
+                        stiffness: 380,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  {item.label}
                 </a>
               </li>
-            </ul>
-          </nav>
-        </motion.header>
+            );
+          })}
+          <li>
+            <a
+              href={SITE_CONFIG.requestAccessUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 rounded-[8px] text-[13px] font-inter-tight tracking-[0.5px] bg-[#7734b3] text-white whitespace-nowrap hover:bg-[#8a45c4] transition-colors"
+            >
+              Request access
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </motion.header>
       )}
     </AnimatePresence>
   );

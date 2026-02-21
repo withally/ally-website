@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { HIRING, SITE_CONFIG } from "@/lib/constants";
 
@@ -15,15 +14,16 @@ export default function Hiring() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white/70 max-w-[600px] leading-[1.6] mb-8">
+          <h2 className="font-editorial text-[55px] tablet:text-[70px] desktop:text-[80px] desktop-lg:text-[90px] leading-[1.1] tracking-tight text-white mb-8">
+            We&rsquo;re{" "}
+            <span className="text-[#fec9ff]">hiring!</span>
+          </h2>
+          <p className="text-[15px] font-inter-tight tracking-[0.5px] text-white/80 max-w-[800px] leading-[1.6]">
             {HIRING.intro}
           </p>
-          <h2 className="font-editorial text-[38px] tablet:text-[80px] desktop:text-[80px] desktop-lg:text-[80px] leading-[1.1] tracking-tight text-white whitespace-pre-line">
-            {HIRING.headline}
-          </h2>
         </motion.div>
 
-        <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 desktop-lg:grid-cols-2 gap-8">
+        <div className="grid mobile:grid-cols-1 tablet:grid-cols-2 desktop:grid-cols-2 desktop-lg:grid-cols-2 gap-6">
           {HIRING.roles.map((role, index) => (
             <motion.div
               key={index}
@@ -31,29 +31,36 @@ export default function Hiring() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="p-8 rounded-2xl bg-[#191919] border border-[#424242]/20"
+              className="p-8 rounded-2xl bg-[#141414] border border-dashed border-[#424242]/50"
             >
-              <h3 className="text-[30px] font-editorial leading-[1.2] text-white mb-2">
+              <h3 className="text-[30px] tablet:text-[35px] font-editorial leading-[1.2] text-white mb-2">
                 {role.title}
               </h3>
               {role.location && (
-                <p className="text-[12px] font-inter-tight tracking-[0.5px] text-[#fec9ff] mb-6">
+                <p className="text-[14px] font-inter-tight tracking-[0.5px] text-white mb-6">
                   {role.location}
                 </p>
               )}
-              <ul className="space-y-3 mb-6">
+
+              <div className="border-t border-[#424242]/40 mb-6" />
+
+              <ul className="space-y-4 mb-8">
                 {role.responsibilities.map((item, idx) => (
                   <li
                     key={idx}
-                    className="flex items-start gap-3 text-[14px] font-inter-tight tracking-[0.5px] text-white/70 leading-[1.6]"
+                    className="flex items-start gap-3 text-[15px] font-inter-tight tracking-[0.5px] text-[#999] leading-[1.6]"
                   >
-                    <Image
-                      src="/images/checkmark.png"
-                      alt=""
-                      width={14}
-                      height={14}
-                      className="mt-1 flex-shrink-0 opacity-50"
-                    />
+                    <svg
+                      className="mt-1 flex-shrink-0 w-[16px] h-[16px] text-[#7734b3]"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -63,16 +70,10 @@ export default function Hiring() {
                   href={SITE_CONFIG.hiringUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-[14px] font-inter-tight tracking-[0.5px] text-[#fec9ff] hover:text-white transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 rounded-full bg-gradient-to-r from-[#6b2fa0] to-[#9b45d6] text-[14px] font-inter-tight tracking-[0.5px] text-white hover:from-[#7734b3] hover:to-[#a855e8] transition-all"
                 >
                   {role.cta}
-                  <Image
-                    src="/images/arrow-icon.png"
-                    alt=""
-                    width={14}
-                    height={14}
-                    className="opacity-70"
-                  />
+                  <span className="text-[12px]">&#8599;</span>
                 </a>
               )}
             </motion.div>

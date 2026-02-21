@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 };
 
 export const NAV_ITEMS = [
-  { label: "What Ally is", href: "#what-ally-is" },
+  { label: "What Ally is", href: "#what-is-ally" },
   { label: "Why Now", href: "#why-now" },
   { label: "How it works", href: "#how-it-works" },
   { label: "We're hiring!", href: "#hiring" },
@@ -34,6 +34,7 @@ export const WHAT_ALLY_IS = {
     line3: "— for ambitious",
     line4: "executives",
     line5: "and founders",
+    line6: "industry leaders.",
   },
   body: "We recruit from the best operator talent pools and equip them with AI-enabled playbooks and ways of working. Our team of operators and tools embed into your organisation to help you clear noise and evolve workflows. We codify wins into playbooks; scale with automation when it's proven.",
 };
